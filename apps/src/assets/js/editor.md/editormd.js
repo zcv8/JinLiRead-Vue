@@ -40,8 +40,6 @@
     
     "use strict";
     
-    var $ = (typeof (jQuery) !== "undefined") ? jQuery : Zepto;
-
 	if (typeof ($) === "undefined") {
 		return ;
 	}

@@ -19,6 +19,7 @@ import './assets/css/open-iconic-bootstrap.css'
 import './assets/js/common.js'
 
 
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
