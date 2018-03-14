@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background: #FFF;">
+    <a class="navbar-brand" href="#">锦鲤阅读</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">首页<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">发现</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">话题</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 mr-sm-4">
+            <input class="form-control" style="margin-right:10px;width:300px;" type="search" placeholder="搜索你所感兴趣的内容..." aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">通知</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">购物车</a>
+            </li>
+            <li class="nav-item dropdown" v-if="isLogin">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-text="username">拂晓</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">个人中心</a>
+                    <a class="dropdown-item" href="#">设置</a>
+                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-item" @click="logout()">退出</span>
+                </div>
+            </li>
+            <li class="nav-item" v-if="!isLogin">
+                <span class="nav-link" data-toggle="modal" @click="initLoginDialog()" data-target="#exampleModalCenter">登录/注册</span>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <nav class="nav nav-tabs">
+                    <a class="flex-sm-fill text-sm-center nav-link" :class="{'active':isLoginTab}" @click="toggleLogin()" href="#">登录</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" :class="{'active':!isLoginTab}" @click="toggleRegister()" href="#">注册</a>
+                </nav>
+                <button type="button" id="CloseModel" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -40px;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form style="margin-top:20px;" v-show="isLoginTab">
+                    <div class="form-group">
+                        <input type="email" class="form-control" v-model="loginUserName" id="exampleInputEmail1" placeholder="请输入登录邮箱/手机号">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" v-model="loginPassword" id="exampleInputPassword1" placeholder="6-16位密码,区分大小写">
+                    </div>
+                    <div v-show="loginMessage" v-text="loginMessage" class="form-text error"></div>
+                    <div class="form-check">
+                        <input type="checkbox" v-model="isChecked" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">7天内自动登录</label>
+                        <span style="float:right;" class="form-check-label" for="exampleCheck1">
+                            <a href="#" class="text-muted">忘记密码？</a>
+                        </span>
+                    </div>
+                    <button type="button" style="margin-top: 10px;font-size: 1rem;border-radius: 0px;" class="btn btn-primary btn-lg btn-block" @click="login()">
+                        登录</button>
+                    <div class="form-group" style="padding-top: 15px;">
+                        <span class="form-check-label text-muted">其他登录方式</span>
+                        <span class="form-check-label" style="margin: 5px;cursor:pointer;"><span class="ion ion-social-tux" style="font-size:26px;position: relative;top: 5px;left: 10px;"></span></span>
+                        <span class="form-check-label" style="margin: 10px;cursor:pointer;"><span class="ion ion-social-github" style="font-size:26px;position: relative;top: 4px;left: 10px;"></span></span>
+                        <span class="form-check-label" style="margin: 10px;cursor:pointer;"><span class="ion ion-social-snapchat" style="font-size:26px;position: relative;top: 5px;left: 10px;"></span></span>
+                        <span class="form-check-label" style="margin: 10px;cursor:pointer;"><span class="ion ion-social-pinterest-outline" style="font-size:26px;position: relative;top: 5px;left: 10px;"></span></span>
+                    </div>
+                </form>
+                <form style="margin-top:20px;" v-show="!isLoginTab">
+                    <div class="form-group">
+                        <input type="email" class="form-control" v-model="registerUserName" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="请输入注册邮箱/手机号">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" v-model="registerPassword" id="exampleInputPassword2" placeholder="6-16位密码,区分大小写">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-7">
+                            <input type="text" style="height: 50px;" v-model="registerCode" class="form-control" id="code" placeholder="请输入验证码">
+                        </div>
+                        <div class="col">
+                            <img v-bind:src="verifyImage" @click="getVerifycode()" title="点击刷新">
+                        </div>
+                    </div>
+                    <div v-show="registerMessage" v-text="registerMessage" style="margin-top: 5px;" class="form-text error"></div>
+                    <div class="form-check" style="margin-top: 10px;">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                        <label class="form-check-label" for="exampleCheck1">同意<a href="#">注册协议</a></label>
+                    </div>
+                    <button type="button" style="margin-top: 10px;font-size: 1rem;border-radius: 0px;" class="btn btn-primary btn-lg btn-block" @click="register()">
+                        注册</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
