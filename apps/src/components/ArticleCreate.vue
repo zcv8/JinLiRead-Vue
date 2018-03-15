@@ -23,25 +23,18 @@
         </div>
       </div>
       <div class="form-group">
-        <div id="editormd">
-          <textarea style="display:none;">### 文章内容</textarea>
-        </div>
+        <editor id="editormd"></editor>
       </div>
     </form>
   </div>
 </template>
 <script type="text/javascript">
-import '../assets/js/editor.md/editormd.js'
+import Editor from "@/components/Editor"
 export default {
   name: 'ArticleCreate',
-  mounted: function() {
-    var editor = editormd("editormd", {
-        id: "editormd",
-        path: "../assets/js/editor.md/lib/",
-        height: 630,
-        saveHTMLToTextarea: true
-      })
-    }
+  components:{
+    editor:Editor
   }
+}
 
 </script>
