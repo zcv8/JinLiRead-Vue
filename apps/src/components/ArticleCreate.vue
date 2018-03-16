@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="form-group">
-        <editor id="editormd"></editor>
+        <editor id="editor"></editor>
       </div>
     </form>
   </div>

@@ -17,7 +17,6 @@ import './assets/css/bootstrap.extend.css'
 import './assets/css/ionicons.min.css'
 import './assets/css/open-iconic-bootstrap.css'
 import './assets/js/common.js'
-import './assets/js/editor.md/editormd.min.js'
 
 
 Vue.config.productionTip = false
