@@ -16,8 +16,6 @@ import $ from './assets/js/jquery-vendor.js'
 import './assets/css/bootstrap.extend.css'
 import './assets/css/ionicons.min.css'
 import './assets/css/open-iconic-bootstrap.css'
-import './assets/js/common.js'
-
 
 Vue.config.productionTip = false
 

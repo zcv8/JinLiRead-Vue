@@ -107,6 +107,7 @@
 </template>
 
 <script>
+import { verifyEmail , verifyPhone } from '../assets/js/common.js'
 export default {
   name: 'LoginHeader',
   data () {
