@@ -27,6 +27,9 @@
 	border-color:#FF2400;
 }
 
+.fs-1{
+	font-size:1.5rem;
+}
 @media (min-width: 576px){
 	.modal-dialog {
 	    max-width: 380px;
