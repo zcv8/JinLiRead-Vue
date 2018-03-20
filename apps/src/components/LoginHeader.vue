@@ -166,11 +166,11 @@ export default {
                 $("#exampleInputPassword1").addClass("input-error");
                 return;
             }
-            $.post("/api/login", {
+             this.$http.post(this.WebApi+"/api/login", {
                 "username": this.loginUserName,
                 "password": this.loginPassword,
                 "checked":this.isChecked?"on":"off"
-            }, function(data) {
+            }).then( function(data) {
                 data = JSON.parse(data)
                 if (data.Status == "success") {
                     app.isLogin = true;
@@ -189,16 +189,18 @@ export default {
                         app.loginMessage = "用户名或密码不正确";
                     }
                 }
+            },function(data){
+                console.log(data)
             });
         },
         logout: function() {
-            $.post("/api/logout",{},function(data){
+            this.$http.post(this.WebApi+"/api/logout",{},function(data){
                 app.username = "";
                 app.isLogin = false;
             });
         },
         validlogin:function(){
-            $.post("/api/validLoginStatus",{},function(data){
+            this.$http.post(this.WebApi+"/api/validLoginStatus",{}).then(function(data){
                 data = JSON.parse(data)
                 console.log(data)
                 if (data.Status == "success") {
@@ -207,6 +209,8 @@ export default {
                 }else{
                     console.log(data.ErrorCode)
                 }
+            },function(data){
+                console.log(data);
             });
         },
         register: function() {
@@ -224,12 +228,12 @@ export default {
                 $("#code").addClass("input-error");
                 return;
             }
-            $.post("/api/register", {
+            this.$http.post(this.WebApi+"/api/register", {
                 "username": this.registerUserName,
                 "password": this.registerPassword,
                 "verifyValue":this.registerCode,
                 "id":this.verifyId
-            },function(data){
+            }).then(function(data){
                 data = JSON.parse(data)
                 if (data.Status == "success") {
                     app.isLogin = true;
@@ -254,6 +258,8 @@ export default {
                     }
                     app.getVerifycode();
                 }
+            },function(data){
+                console.log(data)
             });
         },
         toggleLogin: function() {
@@ -264,7 +270,8 @@ export default {
             this.getVerifycode();
         },
         getVerifycode: function() {
-            $.get("/api/getCaptcha", function(data) {
+            this.$http.get(this.WebApi+"/api/getCaptcha",{}).then(function(data){
+                console.log(data)
                 var obj = data;
                 if (obj != null) {
                     if (obj.msg == "success") {
@@ -272,6 +279,8 @@ export default {
                         app.verifyImage = obj.data;
                     }
                 }
+            },function(data){
+                console.log(data);
             });
         }
   }

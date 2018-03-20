@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 //Webpack 注册并使用 Bootstrap4.0 
 import BootstrapVue from 'bootstrap-vue'
+import VueResource  from 'vue-resource'
 Vue.use(BootstrapVue)
+Vue.use(VueResource)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
@@ -18,6 +20,7 @@ import './assets/css/ionicons.min.css'
 import './assets/css/open-iconic-bootstrap.css'
 
 Vue.config.productionTip = false
+Vue.prototype.WebApi = 'http://localhost:8000'
 
 /* eslint-disable no-new */
 new Vue({
