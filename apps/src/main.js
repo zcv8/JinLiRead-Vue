@@ -21,6 +21,8 @@ import './assets/css/open-iconic-bootstrap.css'
 
 Vue.config.productionTip = false
 Vue.prototype.WebApi = 'http://localhost:8000'
+Vue.http.options.emulateJSON = true;
+
 
 /* eslint-disable no-new */
 new Vue({
