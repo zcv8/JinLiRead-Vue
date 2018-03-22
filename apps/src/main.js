@@ -21,7 +21,7 @@ import './assets/css/open-iconic-bootstrap.css'
 
 //Vue实例的属性
 Vue.config.productionTip = false
-Vue.prototype.WebApi = 'http://localhost:8000'
+Vue.prototype.WebApi = 'http://vue-api.lovemoqing.com'
 
 //设置vue-resource对json请求的支持，防止出现 Options类型的请求
 Vue.http.options.emulateJSON = true;
@@ -31,7 +31,7 @@ Vue.http.interceptors.push(function (request) {
   return function (response) {
     var body = response.body;
     if (body.ErrCode=="INVALID_SESSION"){
-      this.$router.push({path: "/article/create"});
+      //this.$router.push({path: "/login"});
     }
   };
 });
