@@ -144,7 +144,7 @@ export default {
     };
   },
   mounted: function() {
-      this.validlogin();
+      //this.validlogin();
     },
   methods: {
     initLoginDialog: function() {

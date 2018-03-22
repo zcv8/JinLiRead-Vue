@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 //Webpack 注册并使用 Bootstrap4.0 
 import BootstrapVue from 'bootstrap-vue'
-import VueResource  from 'vue-resource'
+import VueResource from 'vue-resource'
 Vue.use(BootstrapVue)
 Vue.use(VueResource)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -19,9 +19,24 @@ import './assets/css/bootstrap.extend.css'
 import './assets/css/ionicons.min.css'
 import './assets/css/open-iconic-bootstrap.css'
 
+//Vue实例的属性
 Vue.config.productionTip = false
 Vue.prototype.WebApi = 'http://localhost:8000'
+
+//设置vue-resource对json请求的支持，防止出现 Options类型的请求
 Vue.http.options.emulateJSON = true;
+
+//对请求的拦截，在请求之前和响应之前做一些操作
+Vue.http.interceptors.push(function (request) {
+  return function (response) {
+    var body = response.body;
+    if (body.ErrCode=="INVALID_SESSION"){
+      this.$router.push({path: "/article/create"});
+    }
+  };
+});
+
+//还可以有对路由的拦截，在路由跳转的时候验证访问路由的权限
 
 
 /* eslint-disable no-new */
