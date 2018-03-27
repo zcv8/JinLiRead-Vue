@@ -21,15 +21,20 @@ import './assets/css/open-iconic-bootstrap.css'
 
 //Vue实例的属性
 Vue.config.productionTip = false
-Vue.prototype.WebApi = 'http://vue-api.lovemoqing.com'
+Vue.prototype.WebApi ='http://vue-api.lovemoqing.com'
 
 //设置vue-resource对json请求的支持，防止出现 Options类型的请求
 Vue.http.options.emulateJSON = true;
 
 //对请求的拦截，在请求之前和响应之前做一些操作
 Vue.http.interceptors.push(function (request) {
+  //实现跨站Cookie
+  request.credentials=true;
   return function (response) {
     var body = response.body;
+    if(body.Cookie!=undefined&&body.Cookie!=""){
+      document.cookie=body.Cookie;
+    }
     if (body.ErrCode=="INVALID_SESSION"){
       //this.$router.push({path: "/login"});
     }
