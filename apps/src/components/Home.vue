@@ -8,19 +8,19 @@
             </ul>
             <ul class="list-group" style="margin-top:10px;">
                 <li class="list-group-item d-flex justify-content-between align-items-center disabled">
-                    技术频道
+                    频道
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    区块链
+                    投资与理财
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    人工智能
+                    美食与健身
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    前端
+                    医学与健康
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    后端
+                    更多频道
                 </li>
             </ul>
         </div>
@@ -55,13 +55,13 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <div class="card bg-light mb-3 " style="margin-top:10px;">
-                <div class="card-header">话题: IT互联网</div>
+            <div class="card mb-3 " style="margin-top:10px;height:160px;">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-9">
-                            <h5 class="card-title">以太坊标准令牌系列之同质化令牌ERC20</h5>
-                            <p class="card-text">众所周知，以太坊在现阶段最大的应用就是令牌发行，而在以太坊中有很多类型的令牌，最著名的当属ERC20了，但是对于其他几种令牌类型，可能还有一些朋友不知道，所以最近规划了一个系列，就是以太坊标准令牌系列。</p>
+                            <span>投资与理财</span>
+                            <h5 class="card-title" style="margin-top:5px;">以太坊标准令牌系列之同质化令牌ERC20</h5>
+                            <p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;众所周知，以太坊在现阶段最大的应用就是令牌发行，而在以太...</p>
                         </div>
                         <div class="col-sm-3">
                             <img class="d-block w-100" src="../assets/images/ethdemo.jpg">
@@ -69,59 +69,6 @@
                     </div>
                 </div>
             </div>
-            <div class="card bg-light mb-3 " style="margin-top:10px;">
-                <div class="card-header">话题: IT互联网</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <h5 class="card-title">以太坊标准令牌系列之同质化令牌ERC20</h5>
-                            <p class="card-text">众所周知，以太坊在现阶段最大的应用就是令牌发行，而在以太坊中有很多类型的令牌，最著名的当属ERC20了，但是对于其他几种令牌类型，可能还有一些朋友不知道，所以最近规划了一个系列，就是以太坊标准令牌系列。</p>
-                        </div>
-                        <div class="col-sm-3">
-                            <img class="d-block w-100" src="../assets/images/ethdemo.jpg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card bg-light mb-3 " style="margin-top:10px;">
-                <div class="card-header">话题: IT互联网</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <h5 class="card-title">以太坊标准令牌系列之同质化令牌ERC20</h5>
-                            <p class="card-text">众所周知，以太坊在现阶段最大的应用就是令牌发行，而在以太坊中有很多类型的令牌，最著名的当属ERC20了，但是对于其他几种令牌类型，可能还有一些朋友不知道，所以最近规划了一个系列，就是以太坊标准令牌系列。</p>
-                        </div>
-                        <div class="col-sm-3">
-                            <img class="d-block w-100" src="../assets/images/ethdemo.jpg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">首页</span>
-                        </a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">尾页</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
         <div class="col-sm-3">
             <a href="#/article/create" class="btn btn-primary btn-lg btn-block">

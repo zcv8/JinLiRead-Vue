@@ -2,21 +2,21 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary row" style="margin-right:0px;">
       <div class="col-sm-9">
-        <a class="navbar-brand" href="#" style="float:left;">
-          <i class="ion ion-ios-flame fs-1"></i>
+        <a class="navbar-brand" href="#/" style="float:left;">
+          锦鲤阅读
         </a>
         <div class="navbar-nav" style="float:left;">
-          <a class="nav-item nav-link active" href="#">首页
+          <a class="nav-item nav-link active" href="#/">首页
             <span class="sr-only">(current)</span>
           </a>
           <a class="nav-item nav-link active" href="#">下载App</a>
         </div>
         <form class="form-inline my-2 my-lg-0" style="float:right;">
           <input class="form-control mr-sm-2" type="search" placeholder="搜索" aria-label="Search">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
+          <button class="btn btn-outline-light my-2 my-sm-0" type="button">搜索</button>
         </form>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-3" style="text-align:right;">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link active" href="#">
