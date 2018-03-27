@@ -1,50 +1,47 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">
-        <i class="ion ion-ios-flame fs-1"></i>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary row" style="margin-right:0px;">
+      <div class="col-sm-9">
+        <a class="navbar-brand" href="#" style="float:left;">
+          <i class="ion ion-ios-flame fs-1"></i>
+        </a>
+        <div class="navbar-nav" style="float:left;">
           <a class="nav-item nav-link active" href="#">首页
             <span class="sr-only">(current)</span>
           </a>
           <a class="nav-item nav-link active" href="#">下载App</a>
         </div>
-
+        <form class="form-inline my-2 my-lg-0" style="float:right;">
+          <input class="form-control mr-sm-2" type="search" placeholder="搜索" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
+        </form>
       </div>
-      <form class="form-inline my-2 mr-5 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="搜索" aria-label="Search">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
-      </form>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">
-            <i class="ion ion-ios-bell fs-1"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">
-            <i class="ion ion-ios-cart fs-1"></i>
-          </a>
-        </li>
-        <li class="nav-item dropdown" v-if="isLogin">
-          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-text="username">拂晓</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">个人中心</a>
-            <a class="dropdown-item" href="#">设置</a>
-            <div class="dropdown-divider"></div>
-            <span class="dropdown-item" @click="logout()">退出</span>
-          </div>
-        </li>
-        <li class="nav-item" v-if="!isLogin">
-          <span class="nav-link" data-toggle="modal" @click="initLoginDialog()" data-target="#exampleModalCenter">登录/注册</span>
-        </li>
-      </ul>
-
+      <div class="col-sm-3">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="ion ion-ios-bell fs-1"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="ion ion-ios-cart fs-1"></i>
+            </a>
+          </li>
+          <li class="nav-item dropdown" v-if="isLogin">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-text="username">拂晓</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">个人中心</a>
+              <a class="dropdown-item" href="#">设置</a>
+              <div class="dropdown-divider"></div>
+              <span class="dropdown-item" @click="logout()">退出</span>
+            </div>
+          </li>
+          <li class="nav-item" v-if="!isLogin">
+            <span class="nav-link" data-toggle="modal" @click="initLoginDialog()" data-target="#exampleModalCenter">登录/注册</span>
+          </li>
+        </ul>
+      </div>
     </nav>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -144,8 +141,8 @@ export default {
     };
   },
   mounted: function() {
-      this.validlogin();
-    },
+    this.validlogin();
+  },
   methods: {
     initLoginDialog: function() {
       this.initLoginInfo();
@@ -224,12 +221,15 @@ export default {
         );
     },
     logout: function() {
-      this.$http.post(this.WebApi + "/api/logout", {}).then(function(data) {
-        this.username = "";
-        this.isLogin = false;
-      },function(data){
-        console.log(data)
-      });
+      this.$http.post(this.WebApi + "/api/logout", {}).then(
+        function(data) {
+          this.username = "";
+          this.isLogin = false;
+        },
+        function(data) {
+          console.log(data);
+        }
+      );
     },
     validlogin: function() {
       this.$http.post(this.WebApi + "/api/validLoginStatus", {}).then(
