@@ -34,16 +34,16 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active" style="border-radius:10px;">
-                        <img class="d-block w-100" style="height:220px;border-radius:10px;" src="../assets/images/aspdemo.jpg" alt="First slide">
+                        <img class="d-block w-100" style="height:240px;border-radius:10px;" src="../assets/images/aspdemo.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item" style="border-radius:10px;">
-                        <img class="d-block w-100" style="height:220px;border-radius:10px;" src="../assets/images/es6demo.jpg" alt="Second slide">
+                        <img class="d-block w-100" style="height:240px;border-radius:10px;" src="../assets/images/es6demo.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item" style="border-radius:10px;">
-                        <img class="d-block w-100" style="height:220px;border-radius:10px;" src="../assets/images/jsdemo.jpg" alt="Second slide">
+                        <img class="d-block w-100" style="height:240px;border-radius:10px;" src="../assets/images/jsdemo.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item" style="border-radius:10px;">
-                        <img class="d-block w-100" style="height:220px;border-radius:10px;" src="../assets/images/fulldemo.jpg" alt="Second slide">
+                        <img class="d-block w-100" style="height:240px;border-radius:10px;" src="../assets/images/fulldemo.jpg" alt="Second slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -55,18 +55,13 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <div class="card mb-3 " style="margin-top:10px;height:160px;">
+            <div class="card" style="margin-top:10px;">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <span>投资与理财</span>
-                            <h5 class="card-title" style="margin-top:5px;">以太坊标准令牌系列之同质化令牌ERC20</h5>
-                            <p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;众所周知，以太坊在现阶段最大的应用就是令牌发行，而在以太...</p>
-                        </div>
-                        <div class="col-sm-3">
-                            <img class="d-block w-100" src="../assets/images/ethdemo.jpg">
-                        </div>
-                    </div>
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
         </div>
