@@ -221,7 +221,7 @@ export default {
         );
     },
     logout: function() {
-      this.$http.post(this.WebApi + "/api/logout", {}).then(
+      this.$http.get(this.WebApi + "/api/logout", {}).then(
         function(data) {
           this.username = "";
           this.isLogin = false;
@@ -232,7 +232,7 @@ export default {
       );
     },
     validlogin: function() {
-      this.$http.post(this.WebApi + "/api/validLoginStatus", {}).then(
+      this.$http.get(this.WebApi + "/api/validLoginStatus", {}).then(
         function(data) {
           data = data.body;
           if (data.Status == "success") {
