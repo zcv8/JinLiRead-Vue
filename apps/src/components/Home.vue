@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-2">
             <ul class="list-group">
-                <li class="list-group-item">今日焦点</li>
+                <li class="list-group-item active">今日焦点</li>
                 <li class="list-group-item">为你推荐</li>
                 <li class="list-group-item">最新内容</li>
             </ul>
@@ -12,9 +12,6 @@
                 </li>
                 <li v-for="channel in channels" :key="channel.ID" :title="channel.Remark" class="list-group-item d-flex justify-content-between align-items-center">
                     {{channel.Name}}
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    更多频道
                 </li>
             </ul>
         </div>

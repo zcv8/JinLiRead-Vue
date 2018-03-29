@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary row" style="margin-right:0px;">
+    <nav class="navbar navbar-expand-lg navbar-dark row" style="margin-right:0px;background:#325987;">
       <div class="col-sm-9">
         <a class="navbar-brand" href="#/" style="float:left;">
           锦鲤阅读

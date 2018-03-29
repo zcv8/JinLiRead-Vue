@@ -30,6 +30,18 @@
 .fs-1{
 	font-size:1.5rem;
 }
+
+.list-group .list-group-item{
+	border:none;
+	padding: 0.5rem 1.25rem;
+	border-radius: 0.25rem;
+}
+.list-group-item.active{
+	background:#325987;
+}
+.list-group-item:hover{
+	cursor: pointer;
+}
 @media (min-width: 576px){
 	.modal-dialog {
 	    max-width: 380px;
