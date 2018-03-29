@@ -10,14 +10,8 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center disabled">
                     频道
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    投资与理财
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    美食与健身
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    医学与健康
+                <li v-for="channel in channels" :key="channel.ID" :title="channel.Remark" class="list-group-item d-flex justify-content-between align-items-center">
+                    {{channel.Name}}
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     更多频道
@@ -83,6 +77,24 @@
 
 <script type="text/javascript">
 export default {
-  name: "Home"
+  name: "Home",
+  data(){
+      return{
+          channels:[]
+      }
+  },
+  mounted:function(){
+      this.getChannels();
+  },
+  methods:{
+      getChannels:function(){
+          this.$http.get(this.WebApi+"/api/channels",{}).then(function(data){
+              data = data.body;
+              this.channels=data.Data;
+          },function(err){
+              console.log(err);
+          });
+      }
+  }
 };
 </script>
