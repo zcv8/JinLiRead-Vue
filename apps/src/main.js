@@ -18,6 +18,9 @@ import $ from './assets/js/jquery-vendor.js'
 import './assets/css/bootstrap.extend.css'
 import './assets/css/ionicons.min.css'
 import './assets/css/open-iconic-bootstrap.css'
+//使用VueSimplemde组件
+import VueSimplemde from 'vue-simplemde'
+Vue.use(VueSimplemde)
 
 //Vue实例的属性
 Vue.config.productionTip = false
@@ -45,7 +48,7 @@ Vue.http.interceptors.push(function (request) {
 
 
 /* eslint-disable no-new */
-new Vue({
+var app=new Vue({
   el: '#app',
   router,
   components: { App },
