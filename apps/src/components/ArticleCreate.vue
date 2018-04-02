@@ -39,7 +39,7 @@
             <form>
             <div class="form-group">
               <label for="ChannelSelect">选择频道</label>
-              <select class="form-control" id="ChannelSelect">
+              <select class="form-control" v-model="curChannel" id="ChannelSelect">
                 <option value="">选择所属频道</option>
                 <option v-for="channel in channels" :key="channel.ID" :value="channel.ID">
                   {{channel.Name}}
@@ -47,14 +47,14 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="KeywordInput">选择频道</label>
-              <input id="KeywordInput" class="form-control" placeholder="选择关键字，用；分隔"/>
+              <label for="KeywordInput">关键词</label>
+              <input id="KeywordInput" v-model="keywords" class="form-control" placeholder="选择关键字，用;分隔"/>
             </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-primary">确认发布</button>
+            <button type="button" class="btn btn-primary" @click="confirmRelsase()">确认发布</button>
           </div>
         </div>
       </div>
@@ -75,7 +75,9 @@ export default {
       title:"",
       content:"",
       channelId:"",
-      labels:""
+      labels:"",
+      curChannel:"",
+      keywords:""
     };
   },
   mounted: function() {
@@ -102,6 +104,12 @@ export default {
         $("#CreateArticleModal").modal('show');
       }
     },
+    confirmRelsase:function(){
+      if(this.validDialog()){
+        this.initDialogInput();
+        alert("准备发送请求");
+      }
+    },
     valid:function(){
       this.initInput();
       if(this.title==""){
@@ -113,9 +121,25 @@ export default {
       }
       return true
     },
+    validDialog:function(){
+      this.initDialogInput();
+      if(this.curChannel==""){
+        $("#ChannelSelect").addClass("input-error");
+        return false;
+      }
+      else if(this.keywords==""){
+        $("#KeywordInput").addClass("input-error");
+        return false;
+      }
+      return true
+    },
     initInput:function(){
       $("#inputTitle").removeClass("input-error");
       $("div.CodeMirror.cm-s-paper.CodeMirror-wrap").removeClass("input-error")
+    },
+    initDialogInput:function(){
+      $("#ChannelSelect").removeClass("input-error");
+      $("#KeywordInput").removeClass("input-error");
     }
   }
 };
