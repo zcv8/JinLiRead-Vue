@@ -88,7 +88,6 @@ export default {
       this.$http.get(this.WebApi + "/api/channels", {}).then(
         function(data) {
           this.channels = data.body.Data;
-          console.log(data.body.Data);
         },
         function(err) {
           console.log(err);
@@ -107,15 +106,33 @@ export default {
     confirmRelsase:function(){
       if(this.validDialog()){
         this.initDialogInput();
-        alert("准备发送请求");
+        this.$http.post(this.WebApi+"/api/article/create",{
+          title:this.title.trim(),
+          content:this.content.trim(),
+          typeId:this.typeId,
+          statusId:1,
+          channelId:this.curChannel,
+          labels:this.labels.trim()
+        }).then(function(data){
+          data=data.body;
+          if(data.Status="success"){
+            $("#CreateArticleModal").modal('hide');
+            this.$router.push({path: "/"});
+          }else{
+            console.log(data.ErrCode);
+          }
+          console.log(data);
+        },function(err){
+          console.log(err);
+        });
       }
     },
     valid:function(){
       this.initInput();
-      if(this.title==""){
+      if(this.title.trim()==""){
         $("#inputTitle").addClass("input-error");
         return false;
-      }else if(this.content==""){
+      }else if(this.content.trim()==""){
         $("div.CodeMirror.cm-s-paper.CodeMirror-wrap").addClass("input-error");
         return false;
       }
@@ -127,7 +144,7 @@ export default {
         $("#ChannelSelect").addClass("input-error");
         return false;
       }
-      else if(this.keywords==""){
+      else if(this.keywords.trim()==""){
         $("#KeywordInput").addClass("input-error");
         return false;
       }
