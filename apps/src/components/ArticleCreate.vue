@@ -144,7 +144,7 @@ export default {
         $("#ChannelSelect").addClass("input-error");
         return false;
       }
-      else if(this.keywords.trim()==""){
+      else if(this.labels.trim()==""){
         $("#KeywordInput").addClass("input-error");
         return false;
       }
