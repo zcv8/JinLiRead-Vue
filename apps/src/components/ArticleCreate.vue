@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
               <label for="KeywordInput">关键词</label>
-              <input id="KeywordInput" v-model="keywords" class="form-control" placeholder="选择关键字，用;分隔"/>
+              <input id="KeywordInput" v-model="labels" class="form-control" placeholder="选择关键字，用;分隔"/>
             </div>
             </form>
           </div>

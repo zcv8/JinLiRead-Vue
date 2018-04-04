@@ -42,6 +42,19 @@
 .list-group-item:hover{
 	cursor: pointer;
 }
+
+.btn-white{
+	background:none;
+	color:#8590a6;
+	padding-left:10px;
+	padding-right:0px;
+}
+
+.btn-lightBlue{
+	background:rgba(0, 132, 255, .1);
+	color:#007bff;
+}
+
 @media (min-width: 576px){
 	.modal-dialog {
 	    max-width: 380px;
