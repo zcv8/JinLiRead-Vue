@@ -32,7 +32,6 @@ export default {
             //xhr请求附带参数
             reqopts: {
                 responseType: "json",
-                emulateJSON:true,
                 withCredentials:true
             }
         };
