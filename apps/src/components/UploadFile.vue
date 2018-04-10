@@ -7,7 +7,7 @@ export default {
     name: "uploadFile",
     data() {
         return {
-            uploadApi:this.WebApi+"/api/articles/upload", 
+            uploadApi:this.WebApi+"/api/uploadarticleimg", 
             files: [],
             //文件过滤器，只能上传图片
             filters: [
@@ -25,8 +25,7 @@ export default {
             //回调函数绑定
             cbEvents: {
                 onCompleteUpload: (file, response, status, header) => {
-                    console.log(response);
-                    this.clearAll(); //上传成功之后清除队列
+                    this.$emit("uploadSuccess", response); //将返回结果传递给父组件
                 }
             },
             //xhr请求附带参数
