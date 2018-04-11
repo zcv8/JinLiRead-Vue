@@ -103,7 +103,7 @@ export default {
     },
     uploadSuccess: function(response) {
       if (response.Status == "success") {
-        var data = response.Data;
+        var data =this.WebApi+response.Data;
         if (this.editor) {
           var cm = this.editor.codemirror;
           var stat = this.getState(cm);
