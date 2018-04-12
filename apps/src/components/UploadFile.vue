@@ -14,17 +14,27 @@ export default {
                 {
                     name: "imageFilter",
                     fn(file) {
+                        var size=file.size;
+                        if(size > 1024 * 1024 * 2 ){
+                            alert("请上传2M内的图片")
+                            return false;
+                        }
                         var type =
                             "|" +
                             file.type.slice(file.type.lastIndexOf("/") + 1) +
                             "|";
-                        return "|jpg|png|jpeg|bmp|gif|".indexOf(type) !== -1;
+                        if("|jpg|png|jpeg|bmp|gif|".indexOf(type) === -1){
+                            alert("图片格式要求为:jpg|jpeg|png|bmp|gif");
+                            return false;
+                        }
+                        return true;
                     }
                 }
             ],
             //回调函数绑定
             cbEvents: {
                 onCompleteUpload: (file, response, status, header) => {
+                    console.log(response)
                     this.$emit("uploadSuccess", response); //将返回结果传递给父组件
                 }
             },

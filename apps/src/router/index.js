@@ -12,17 +12,18 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      components:{
-      	header : LoginHeader,
-      	content: Home
+      components: {
+        header: LoginHeader,
+        content: Home
       }
     },
     {
-      path:'/article/create',
-      name:'articleCreate',
-      components:{
-        header:NoHeader,
-        content:ArticleCreate
+      path: '/article/create',
+      name: 'articleCreate',
+      meta: { requireAuth: true }, //需要登录权限才能访问
+      components: {
+        header: NoHeader,
+        content: ArticleCreate
       }
     }
   ]

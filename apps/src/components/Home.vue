@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body" style="padding-top:0px;padding-bottom:5px;">
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div :class="article.image===''?'col-sm-12':'col-sm-8'">
                             <h5 class="card-title">{{article.title}}</h5>
                             <div class="card-text " style="height:80px;">
                                 {{article.content}}
@@ -29,8 +29,8 @@
                                 <a href="#" style="margin-right:10px;color:#325987;"><i class="ion ion-clock"></i> {{article.updatetime | formatDate}}</a>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <img style="width:100%;height:100%;" src="../assets/images/artcie.png" />
+                        <div v-if="article.image!=''" class="col-sm-4">
+                            <img style="width:100%;height:100%;" :src="article.image" />
                         </div>
                     </div>
                 </div>
