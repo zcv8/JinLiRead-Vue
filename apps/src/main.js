@@ -47,7 +47,22 @@ Vue.http.interceptors.push(function (request) {
 });
 
 //还可以有对路由的拦截，在路由跳转的时候验证访问路由的权限
-
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
+    if (document.cookie.indexOf("AUTHORIZATIONKEY=") > -1) { // 判断当前的token是否存在
+      next();
+    }
+    else {
+      next({
+        path: '/',
+        query: { redirect: to.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
+      })
+    }
+  }
+  else {
+    next();
+  }
+});
 
 
 /* eslint-disable no-new */
