@@ -34,7 +34,6 @@ export default {
             //回调函数绑定
             cbEvents: {
                 onCompleteUpload: (file, response, status, header) => {
-                    console.log(response)
                     this.$emit("uploadSuccess", response); //将返回结果传递给父组件
                 }
             },
