@@ -4,6 +4,7 @@ import LoginHeader from '@/components/LoginHeader'
 import ArticleCreate from '@/components/ArticleCreate'
 import Home from '@/components/Home'
 import NoHeader from "@/components/NoHeader"
+import Article from "@/components/Article"
 
 Vue.use(Router)
 
@@ -24,6 +25,14 @@ export default new Router({
       components: {
         header: NoHeader,
         content: ArticleCreate
+      }
+    },
+    {
+      path: '/article/:id',
+      name: 'article',
+      components: {
+        header: NoHeader,
+        content: Article
       }
     }
   ]

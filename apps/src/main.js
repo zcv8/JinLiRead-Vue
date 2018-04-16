@@ -16,6 +16,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.js'
 import $ from './assets/js/jquery-vendor.js'
 //引入自定义的样式和脚本
 import './assets/css/bootstrap.extend.css'
+import './assets/css/base.css'
 import './assets/css/ionicons.min.css'
 import './assets/css/open-iconic-bootstrap.css'
 //使用VueSimplemde组件

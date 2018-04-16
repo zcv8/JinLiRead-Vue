@@ -5,11 +5,11 @@
                 <button type="button" v-for="channel in channels" :key="channel.ID" class="btn btn-white">{{channel.Name}}</button>
                 <button type="button" class="btn btn-white">更多热门频道>></button>
             </div>
-            <div class="card mb-3" v-for="article in articles" :key="article.id"  style="border:none;border-top:1px solid #f0f0f0;">
+            <a class="card mb-3" :href="'#/article/'+article.id" v-for="article in articles" :key="article.id"  style="border:none;border-top:1px solid #f0f0f0;">
                 <div class="card-header" style="border:none;background:none;">
                     <div style="height:30px;">
                         <img style="with:30px;height:30px;" src="../assets/images/touxiang.jpeg" />
-                        <span style="height:30px; vertical-align:text-top;">奔跑的山羊
+                        <span style="height:30px; vertical-align:text-top;">{{article.user.UserName}}
                             <small style="color:#8590a6;">专业软件开发者</small>
                         </span>
                     </div>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-sm-3">
             <a href="#/article/create" class="btn btn-primary btn-lg btn-block">
@@ -90,8 +90,8 @@ export default {
             this.$http
                 .get(
                     this.WebApi +
-                        "/api/articles/" +
-                        channelId +
+                        "/api/channels/" +
+                        channelId +"/articles"+
                         "?pageIndex=" +
                         this.pageIndex +
                         "&pageSize=" +
