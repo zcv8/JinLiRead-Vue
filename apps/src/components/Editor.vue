@@ -6,7 +6,7 @@
         <div style="display:none">{{sendContent}}</div>
       </div>
     </div>
-    <upload-file v-on:uploadSuccess="uploadSuccess" multiple="false" ref="uploadFile" v-show="false"></upload-file>
+    <upload-file v-on:uploadSuccess="uploadSuccess"  ref="uploadFile" v-show="false"></upload-file>
   </div>
 </template>
 

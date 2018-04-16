@@ -1,11 +1,12 @@
 <template>
-    <vue-file-upload :multiple="multiple" :url="uploadApi" ref="vueFileUploader" v-bind:filters="filters" v-bind:events="cbEvents" v-bind:request-options="reqopts" v-on:onAdd="onAddItem"></vue-file-upload>
+<div>
+    <vue-file-upload :multiple="false" :url="uploadApi" ref="vueFileUploader" v-bind:filters="filters" v-bind:events="cbEvents" v-bind:request-options="reqopts" v-on:onAdd="onAddItem"></vue-file-upload>
+</div>
 </template>
 <script>
 import VueFileUpload from "vue-file-upload";
 export default {
     name: "uploadFile",
-    props: ["multiple"],
     data() {
         return {
             uploadApi:this.WebApi+"/api/uploadarticleimg", 
@@ -45,7 +46,8 @@ export default {
             }
         };
     },
-    mounted() {},
+    mounted() {
+    },
     methods: {
         onStatus(file) {
             if (file.isSuccess) {
