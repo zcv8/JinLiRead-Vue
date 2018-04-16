@@ -6,7 +6,7 @@
         <div style="display:none">{{sendContent}}</div>
       </div>
     </div>
-    <upload-file v-on:uploadSuccess="uploadSuccess" ref="uploadFile" v-show="false"></upload-file>
+    <upload-file v-on:uploadSuccess="uploadSuccess" multiple="false" ref="uploadFile" v-show="false"></upload-file>
   </div>
 </template>
 
@@ -103,7 +103,7 @@ export default {
     },
     uploadSuccess: function(response) {
       if (response.Status == "success") {
-        var data =this.WebApi+response.Data;
+        var data = this.WebApi + response.Data;
         if (this.editor) {
           var cm = this.editor.codemirror;
           var stat = this.getState(cm);
@@ -115,8 +115,6 @@ export default {
             options.insertTexts.image,
             url
           );
-          //父组件调用子组件的方法 清除上传队列
-          this.$refs.uploadFile.clearAll();
         }
       }
     },
@@ -181,7 +179,7 @@ export default {
         end = text.slice(startPoint.ch);
         cm.replaceRange(start + end, {
           line: startPoint.line,
-          ch: 0
+          ch: 0 
         });
       } else {
         text = cm.getSelection();
