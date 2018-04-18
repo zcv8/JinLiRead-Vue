@@ -121,7 +121,6 @@ export default {
           }else{
             console.log(data.ErrCode);
           }
-          console.log(data);
         },function(err){
           console.log(err);
         });

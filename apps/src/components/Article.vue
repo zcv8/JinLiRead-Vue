@@ -22,9 +22,7 @@
                 <span>作者：{{article.user.username}}</span>
             </div>
             <hr>
-            <p>
-                {{article.content}}
-            </p>
+            <p class="articleContent" v-html="article.content"></p>
         </div>
     </div>
 </template>
@@ -50,13 +48,18 @@
 .articleMain hr {
   margin-top: 5px;
 }
+.articleContent img{
+  width: 100%;
+}
 </style>
 
 <script>
+import marked from "marked"
 export default {
   name: "Article",
   data() {
     return {
+      rendererMD:null,
       article: {
         id: this.$route.params.id,
         title: "",
@@ -74,6 +77,17 @@ export default {
     };
   },
   mounted: function() {
+    this.rendererMD = new marked.Renderer();
+    marked.setOptions({
+      renderer: this.rendererMD,
+      gfm: true,
+      tables: true,
+      breaks: false,
+      pedantic: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false
+    });//基本设置
     this.getArticle();
   },
   methods: {
@@ -85,7 +99,7 @@ export default {
             var obj = res.Data;
             this.article.id = obj.id;
             this.article.title = obj.title;
-            this.article.content = obj.content;
+            this.article.content = marked(obj.content);
             this.article.user.id = obj.user.ID;
             this.article.user.username = obj.user.UserName;
             this.article.channel.name = obj.channel.Name;
