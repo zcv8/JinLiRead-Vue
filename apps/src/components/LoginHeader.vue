@@ -31,8 +31,8 @@
           <li class="nav-item dropdown" v-if="isLogin">
             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-text="username">拂晓</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">个人中心</a>
-              <a class="dropdown-item" href="#">设置</a>
+              <a class="dropdown-item" href="#/profile">个人中心</a>
+              <a class="dropdown-item" href="#/settings">设置</a>
               <div class="dropdown-divider"></div>
               <span class="dropdown-item" @click="logout()">退出</span>
             </div>
