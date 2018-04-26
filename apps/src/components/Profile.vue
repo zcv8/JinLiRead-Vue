@@ -279,6 +279,7 @@ li {
     padding: 8px 0;
     margin-bottom: -1px;
 }
+
 .note-list {
     margin: 0;
     padding: 0;
