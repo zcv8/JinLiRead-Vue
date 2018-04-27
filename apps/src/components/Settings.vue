@@ -10,7 +10,6 @@
                                     <i class="ion ion-navicon-round"></i>
                                 </div>
                                 <span>基础设置</span>
-                                <!---->
                             </a>
                         </li>
                         <li class="">
@@ -19,7 +18,6 @@
                                     <i class="ion ion-ios-person"></i>
                                 </div>
                                 <span>个人资料</span>
-                                <!---->
                             </a>
                         </li>
                         <li class="">
@@ -28,7 +26,6 @@
                                     <i class="ion ion-gear-a"></i>
                                 </div>
                                 <span>帐号管理</span>
-                                <!---->
                             </a>
                         </li>
                     </ul>
@@ -96,6 +93,7 @@ export default {
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .setting .aside {
     top: 0;
     bottom: 0;
@@ -149,7 +147,6 @@ display: block;
 .setting .main .setting-save {
     width: 100px;
     margin: 30px 0 60px;
-    border-radius: 20px;
     border: none;
 }
 .setting .main .top-line {
@@ -181,7 +178,6 @@ display: block;
     padding: 5px 10px;
     font-size: 15px;
     border: 1px solid #c8c8c8;
-    border-radius: 4px;
     background-color: hsla(0, 0%, 71%, 0.1);
 }
 .setting .main .setted div {
@@ -209,11 +205,6 @@ display: block;
 .setting .main .cancel-bind {
     display: none;
 }
-.setting .main .setting-save {
-    width: 100px;
-    margin: 30px 0 60px;
-    border-radius: 20px;
-    border: none;
-}
+
 </style>
 
